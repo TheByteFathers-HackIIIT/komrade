@@ -20,9 +20,9 @@ app.use(cors({
     preflightContinue: false,
     optionsSuccessStatus: 204,
   }));  
-
 main();
-async function main () {
+async function main () { 
+    // key will be invalidated.
      let conn =  await connect('mongodb+srv://komrade_backend:7U1xoFPZ10SJWj8K@komradedb.lzf50ol.mongodb.net/?retryWrites=true&w=majority')
         
      app.use(express.json());

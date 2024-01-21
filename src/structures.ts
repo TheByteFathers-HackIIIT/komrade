@@ -21,7 +21,8 @@ const orderschema = new Schema({
     items: {type: [String], required: true},
     expire: {type: Date, required: true},
     completed: {type: Boolean, required: false, default: false},
-    canteen: {type: String, required: true}
+    canteen: {type: String, required: true},
+    hostel: {type: String,required: true}
 });
 export type KOrder = InferSchemaType<typeof orderschema>;
 export const OrderModel = model('Order',orderschema);
