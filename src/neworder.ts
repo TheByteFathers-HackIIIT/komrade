@@ -22,7 +22,7 @@ export default async function newOrder(req: Request,res: Response){
 }
 
 export async function orderAccept(req: Request,res: Response){
-    let x = req.body.id as string;
+    let x = req.body.id;
     let order = await OrderModel.findById(x);
     let user = req.user;
     if(!order || !user ){

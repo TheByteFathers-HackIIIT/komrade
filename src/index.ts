@@ -7,7 +7,8 @@ import cors from 'cors';
 import { KUserUnknown } from './structures';
 import { KUserCached } from './sessions';
 // import  './getactiveorders';
-import newOrder from './neworder';
+import newOrder, { orderAccept } from './neworder';
+import getHistory from './orderhistory';
 import GetActiveOrders from './getactiveorders';
 const app = express();
 
@@ -31,7 +32,8 @@ app.post('/register',authVerifyUnregistered,Register);
 app.get('/getactiveorders',authVerifyRegistered,GetActiveOrders);
 app.post('/neworder',authVerifyRegistered,newOrder);
 app.get('/getuser',authVerifyRegistered,getUser);
-
+app.get('/acceptorder',authVerifyRegistered, orderAccept);
+app.get('/orderhistory',authVerifyRegistered,getHistory);
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 }); 
